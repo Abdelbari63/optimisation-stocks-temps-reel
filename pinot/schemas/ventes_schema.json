@@ -1,0 +1,17 @@
+{
+  "schemaName": "ventes",
+  "dimensionFieldSpecs": [
+    {"name": "store_id",   "dataType": "STRING"},
+    {"name": "product_id", "dataType": "STRING"}
+  ],
+  "metricFieldSpecs": [
+    {"name": "qty",   "dataType": "INT"},
+    {"name": "price", "dataType": "DOUBLE"}
+  ],
+  "dateTimeFieldSpecs": [{
+    "name":        "ts",
+    "dataType":    "LONG",
+    "format":      "1:MILLISECONDS:EPOCH",
+    "granularity": "1:MILLISECONDS"
+  }]
+}

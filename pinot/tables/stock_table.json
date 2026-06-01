@@ -1,0 +1,29 @@
+{
+  "tableName": "stock",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "ts",
+    "replication": "1",
+    "retentionTimeUnit": "HOURS",
+    "retentionTimeValue": "2"
+  },
+  "tableIndexConfig": {
+    "starTreeIndexConfigs": [{
+      "dimensionsSplitOrder": ["store_id", "product_id"],
+      "functionColumnPairs":  ["MAX__level", "MIN__level"],
+      "maxLeafRecords": 5000
+    }],
+    "streamConfigs": {
+      "streamType": "kafka",
+      "stream.kafka.consumer.type": "lowlevel",
+      "stream.kafka.topic.name": "stock",
+      "stream.kafka.broker.list": "kafka:29092",
+      "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+      "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.inputformat.json.JSONMessageDecoder",
+      "realtime.segment.flush.threshold.rows": "10000",
+      "realtime.segment.flush.threshold.time": "600000"
+    }
+  },
+  "tenants": {},
+  "metadata": {}
+}

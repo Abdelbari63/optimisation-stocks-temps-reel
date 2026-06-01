@@ -1,0 +1,16 @@
+{
+  "schemaName": "stock",
+  "dimensionFieldSpecs": [
+    {"name": "store_id",   "dataType": "STRING"},
+    {"name": "product_id", "dataType": "STRING"}
+  ],
+  "metricFieldSpecs": [
+    {"name": "level", "dataType": "INT"}
+  ],
+  "dateTimeFieldSpecs": [{
+    "name":        "ts",
+    "dataType":    "LONG",
+    "format":      "1:MILLISECONDS:EPOCH",
+    "granularity": "1:MILLISECONDS"
+  }]
+}
